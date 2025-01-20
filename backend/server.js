@@ -105,7 +105,7 @@ app.use(session({
     saveUninitialized: false,
     store: sessionStore, // session store
     cookie: {
-        secure: false, // Set to false for local development
+        secure: true, // Set to false for local development
         maxAge: 1000 * 60 * 60 * 24, // 1-day expiration
         httpOnly: true,
         sameSite: 'none',
