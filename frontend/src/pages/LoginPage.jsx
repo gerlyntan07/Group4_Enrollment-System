@@ -72,6 +72,7 @@ function LoginPage() {
       })
       .catch((err) => {
         console.error("Error:", err);
+      });
   }, []);
   {
     /* NECESSARY FOR OTHER MAIN PAGES TO AVOID ROLLING BACK WHEN LOGGED IN. COPY TOGETHER WITH NECESSARY IMPORTED MODULES */
