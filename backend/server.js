@@ -30,29 +30,30 @@ import path from 'path';
 import fs from 'fs';
 import session from 'express-session';
 import dbConfig from './db/dbConfig.js';
+import MySQLStore from 'express-mysql-session';
 
-import { createRequire } from 'module'; 
-const require = createRequire(import.meta.url);
-const MySQLStore = require('express-mysql-session');
 dotenv.config();
 
 const app = express();
 
-const db = mysql.createConnection(dbConfig);
+let db;
 
 function handleDisconnect() {
+    db = mysql.createConnection(dbConfig);
+
     db.connect((err) => {
         if (err) {
-            console.error('Error reconnecting to the database:', err.stack);
-            setTimeout(handleDisconnect, 2000);
+            console.error('Error connecting to the database:', err.stack);
+            setTimeout(handleDisconnect, 2000); // Retry after 2 seconds
         } else {
-            console.log('Connected to the database with SSL!');
+            console.log('Connected to the database!');
         }
     });
 
     db.on('error', (err) => {
         console.error('Database error:', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+            console.log('Reconnecting to the database...');
             handleDisconnect();
         } else {
             throw err;
@@ -60,23 +61,24 @@ function handleDisconnect() {
     });
 }
 
-// Start the database connection
 handleDisconnect();
-
 // Session store configuration
-const sessionStore = new MySQLStore({
-    expiration: 1000 * 60 * 60 * 24, // 1-day expiration
-    schema: {
-        tableName: 'sessions',
-        columnNames: {
-            session_id: 'session_id',
-            expires: 'expires',
-            data: 'data',
+const sessionStore = new MySQLStore(
+    {
+        expiration: 1000 * 60 * 60 * 24, // 1-day expiration
+        schema: {
+            tableName: 'sessions',
+            columnNames: {
+                session_id: 'session_id',
+                expires: 'expires',
+                data: 'data',
+            },
         },
+        clearExpired: true,
+        checkExpirationInterval: 900000, // Check every 15 minutes
     },
-    clearExpired: true,  // Automatically clear expired sessions
-    checkExpirationInterval: 900000,  // Check every 15 minutes
-}, db);
+    dbConfig // Use dbConfig instead of db
+);
 
 sessionStore.on('connect', () => {
     console.log('Session store connected');
