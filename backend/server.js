@@ -2742,9 +2742,6 @@ app.post('/LoginPage', (req, res) => {
 
 // Session retrieval route
 app.get('/session', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://group4-enrollment-system-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Credentials', 'true'); 
-
     console.log("Session after setting: ", req.session);
     if (req.session) {
         const getName = `SELECT * FROM account WHERE Email = ?`;

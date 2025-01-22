@@ -13,15 +13,16 @@ const pemPath = path.resolve(__dirname, "../ssl/isrgrootx1.pem");
 dotenv.config();
 
 const dbConfig = {
-    host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
-    user: 'yy1aykyEhDRFQV6.root',
-    password: 'RBP2ZbF0vd0Op2nY',
-    database: 'cvsuenrollmentsystem',
-    port: 4000,
+    host: process.env.TIDB_HOST,
+    user: process.env.TIDB_USER,
+    password: process.env.TIDB_PASSWORD,
+    database: process.env.TIDB_DATABASE,
+    port: process.env.TIDB_PORT,
     ssl: {
         ca: fs.readFileSync(pemPath)
     },
     connectionLimit: 10,
+    connectionTimeout: 10000,
 };
 
 
