@@ -38,13 +38,12 @@ dotenv.config();
 
 const app = express();
 
-const db = mysql.createConnection(dbConfig);
-
 function handleDisconnect() {
+    db = mysql.createConnection(dbConfig); // Recreate the connection object
     db.connect((err) => {
         if (err) {
             console.error('Error reconnecting to the database:', err.stack);
-            setTimeout(handleDisconnect, 2000);
+            setTimeout(handleDisconnect, 2000); // Retry after 2 seconds
         } else {
             console.log('Connected to the database with SSL!');
         }
@@ -53,12 +52,13 @@ function handleDisconnect() {
     db.on('error', (err) => {
         console.error('Database error:', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            handleDisconnect();
+            handleDisconnect(); // Reconnect on connection loss
         } else {
-            throw err;
+            throw err; // Rethrow other errors
         }
     });
 }
+
 
 // Start the database connection
 handleDisconnect();
