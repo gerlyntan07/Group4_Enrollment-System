@@ -120,9 +120,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
-
 //Email sender
 const transporter = nodemailer.createTransport({
     service: 'gmail',
