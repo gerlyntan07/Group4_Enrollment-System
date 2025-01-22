@@ -115,7 +115,6 @@ function DCSHeadDashboard() {
         setCScount(res.data.CScount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -128,7 +127,6 @@ function DCSHeadDashboard() {
         setITcount(res.data.ITcount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -140,7 +138,6 @@ function DCSHeadDashboard() {
         setReqCount(res.data.shiftingReqCount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   });
@@ -171,7 +168,7 @@ function DCSHeadDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: ", err);
+        console.error(err);
         setIsEnrollment(false);
       });
   }, [isEnrollment, enrollment]);

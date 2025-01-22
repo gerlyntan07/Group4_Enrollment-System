@@ -24,7 +24,6 @@ function StudentChecklist() {
         }
       })
       .catch((err) => {
-        alert('An error occurred while fetching data.');
         console.error(err);
       });
   }, []);

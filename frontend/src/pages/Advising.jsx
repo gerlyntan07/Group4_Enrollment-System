@@ -189,7 +189,7 @@ function Requirements() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
         setCOG(null);
         setChecklist([]);
         setCourses([]);

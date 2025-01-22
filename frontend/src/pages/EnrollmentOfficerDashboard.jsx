@@ -102,7 +102,6 @@ function EnrollmentOfficerDashboard() {
         setCScount(res.data.CScount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -115,7 +114,6 @@ function EnrollmentOfficerDashboard() {
         setITcount(res.data.ITcount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -127,7 +125,6 @@ function EnrollmentOfficerDashboard() {
         setReqCount(res.data.shiftingReqCount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   });
@@ -152,7 +149,7 @@ function EnrollmentOfficerDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -171,7 +168,7 @@ function EnrollmentOfficerDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 

@@ -66,7 +66,7 @@ function ShifteeForm() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       })
   }, [formValues.shiftingStatus]);
 

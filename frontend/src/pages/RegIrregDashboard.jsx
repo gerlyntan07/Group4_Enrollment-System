@@ -56,7 +56,7 @@ function RegIrregDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error fetching program: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -128,7 +128,7 @@ function RegIrregDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: ", err);
+        console.error(err);
         setIsEnrollment(false);
       });
   }, [isEnrollment, enrollment]);

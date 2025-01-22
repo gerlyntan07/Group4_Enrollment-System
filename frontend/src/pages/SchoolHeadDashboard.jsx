@@ -100,7 +100,6 @@ function SchoolHeadDashboard() {
         setCScount(res.data.CScount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -113,7 +112,6 @@ function SchoolHeadDashboard() {
         setITcount(res.data.ITcount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -125,7 +123,6 @@ function SchoolHeadDashboard() {
         setReqCount(res.data.shiftingReqCount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   });
@@ -150,7 +147,7 @@ function SchoolHeadDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -169,7 +166,7 @@ function SchoolHeadDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 

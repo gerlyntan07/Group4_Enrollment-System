@@ -339,7 +339,7 @@ function FreshmenAdmissionForm() {
         }
       })
       .catch((err) => {
-        alert("Error fetching preferred program: " + err);
+        console.error(err);
       });
   }, [formData.applicationStatus])
 
@@ -430,7 +430,6 @@ function FreshmenAdmissionForm() {
       })
       .catch((err) => {
         console.log("Error:", err);
-        alert("Failed to save data");
       })
       .finally(() => {
         setIsSaving(false); // Only called after both requests are done
@@ -494,7 +493,7 @@ function FreshmenAdmissionForm() {
           }
         })
         .catch((err) => {
-          alert("Error: " + err);
+          console.error(err);
         })
     }
   }
@@ -513,7 +512,7 @@ function FreshmenAdmissionForm() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       })
   }, [isSlot]);
 
@@ -529,7 +528,7 @@ function FreshmenAdmissionForm() {
       }
     })
     .catch((err) => {
-      alert("Error: " + err);
+      console.error(err);
     })
   }
 

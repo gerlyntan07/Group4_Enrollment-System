@@ -62,7 +62,6 @@ function ClassSchedule() {
       })
       .catch((err) => {
         console.error("Error fetching schedule:", err);
-        alert("Error fetching schedule");
       });
   }, []); // Only runs once on component mount
 

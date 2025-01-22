@@ -102,7 +102,6 @@ function AdviserDashboard() {
         setCScount(res.data.CScount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -115,7 +114,6 @@ function AdviserDashboard() {
         setITcount(res.data.ITcount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -127,7 +125,6 @@ function AdviserDashboard() {
         setReqCount(res.data.shiftingReqCount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   });
@@ -152,7 +149,7 @@ function AdviserDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -171,7 +168,7 @@ function AdviserDashboard() {
         }
       })
       .catch((err) => {
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -186,7 +183,7 @@ function AdviserDashboard() {
       }
     })
     .catch((err) => {
-      alert("Error: " + err);
+      console.error(err);
     })
   },[enrolledStudents]);
 

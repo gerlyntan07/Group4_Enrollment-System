@@ -159,7 +159,7 @@ function EnrollmentIrregular() {
                 setSocFeeStatus(res.data.records.SocFeePayment);
               })
               .catch((err) => {
-                alert("Error: " + err);
+                console.error(err);
               });
 
 
@@ -174,7 +174,7 @@ function EnrollmentIrregular() {
                 }              
               })
               .catch((err) => {
-                alert("Error: " + err);
+                console.error(err);
               });
 
           } else {
@@ -271,7 +271,6 @@ function EnrollmentIrregular() {
 
       })
       .catch((err) => {
-        alert('An error occurred while fetching data.');
         console.error(err);
         setUploadedImage(null);
       });
@@ -346,7 +345,7 @@ function EnrollmentIrregular() {
         }
       })
       .catch((err) => {
-        alert('Error: ' + err);
+        console.error(err);
         setIsReqsSubmitted(false);
       });
   };

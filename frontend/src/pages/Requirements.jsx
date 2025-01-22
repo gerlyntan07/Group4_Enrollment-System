@@ -152,7 +152,7 @@ const closePrompt = () => {
       }
     })
     .catch((err) => {
-      alert("Error: " + err);
+      console.error(err);
       setCOG(null);
       setChecklist([]);
     });

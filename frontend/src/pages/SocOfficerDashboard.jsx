@@ -79,8 +79,7 @@ function SocOfficerDashboard() {
         setPFP(`${backendUrl}/${res.data.pfpURL}`);
       })
       .catch((err) => {
-        //TODO: Error prompt
-        alert("Error: " + err);
+        console.error(err);
       });
   }, []);
 
@@ -209,7 +208,6 @@ function SocOfficerDashboard() {
         setCScount(res.data.CScount);
       })
       .catch((err) => {
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -222,8 +220,6 @@ function SocOfficerDashboard() {
         setITcount(res.data.ITcount);
       })
       .catch((err) => {
-        //TODO: Error prompt
-        alert("Error: " + err);
         console.error("ERROR FETCHING DATA: " + err);
       });
   }, []);
@@ -243,7 +239,7 @@ function SocOfficerDashboard() {
       })
       .catch((err) => {
         //TODO: Error prompt
-        alert("Error: " + err.message);
+        console.error(err);
       });
   };
 
@@ -261,8 +257,7 @@ function SocOfficerDashboard() {
         }
       })
       .catch((err) => {
-        //TODO: Error prompt
-        alert("Error: " + err.message);
+        console.error(err);
       });
   };
 
