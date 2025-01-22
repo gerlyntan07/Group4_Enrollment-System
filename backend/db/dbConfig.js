@@ -14,8 +14,8 @@ dotenv.config();
 
 const dbConfig = {
     host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
-    user: 'yy1aykyEhDRFQV6.vu-kO6X361C',
-    password: 's1H58qHLAuuFWsQc62Gy1eCu7OD&3KavEOuU',
+    user: 'yy1aykyEhDRFQV6.root',
+    password: 'RBP2ZbF0vd0Op2nY',
     database: 'cvsuenrollmentsystem',
     port: 4000,
     ssl: {
