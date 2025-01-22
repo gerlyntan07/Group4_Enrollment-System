@@ -58,7 +58,6 @@ function LoginPage() {
           ) {
             navigate("/RegIrregDashboard");
           } else if (res.data.role === "Society Officer") {
-            console.log("Role: ", res.data);
             navigate("/SocOfficerDashboard");
           } else if (res.data.role === "Adviser") {
             navigate("/AdviserDashboard");
@@ -68,7 +67,6 @@ function LoginPage() {
             navigate("/SchoolHeadDashboard");
           }
         } else {
-          console.log(res.data);
           navigate("/LoginPage");
         }
       })

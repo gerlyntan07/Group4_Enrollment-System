@@ -99,17 +99,16 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-const isProduction = process.env.NODE_ENV === 'production';
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: sessionStore, // session store
     cookie: {
-        secure: isProduction, // Set to false for local development
+        secure: true, // Set to false for local development
         maxAge: 1000 * 60 * 60 * 24, // 1-day expiration
         httpOnly: true,
-        sameSite: isProduction ? 'none' : 'lax',
+        sameSite: 'none',
         path: '/',
     },
 }));
