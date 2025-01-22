@@ -22,7 +22,6 @@ const dbConfig = {
         ca: fs.readFileSync(pemPath)
     },
     connectionLimit: 10,
-    connectTimeout: 10000
 };
 
 
